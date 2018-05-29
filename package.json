@@ -1,29 +1,33 @@
 {
-  "name": "redux-handy",
-  "version": "0.0.2",
+  "name": "next-styled-css",
+  "version": "0.0.0-beta.5",
   "author": "Vinicius Pacheco Furtado <vin175pacheco@gmail.com>",
-  "description": "Library that helps you create actions and reducers and handle them easily.",
+  "description": "Next wrapper for styled-css-loader",
   "main": "dist/index.js",
   "files": [
-    "dist"
+    "dist",
+    "theme.js"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:vinpac/redux-handy.git"
+    "url": "git@github.com:vinpac/next-styled-css.git"
   },
   "license": "MIT",
   "scripts": {
     "lint": "$(npm bin)/eslint src --fix",
-    "pretest": "$(npm bin)/eslint src --fix",
+    "clean": "rimraf dist",
     "test": "$(npm bin)/jest",
     "test:watch": "npm run test --watch",
-    "transpile": "$(npm bin)/babel src -d dist",
+    "transpile": "rimraf dist && $(npm bin)/babel src -d dist",
+    "transpile:watch": "nodemon -q -w src --exec \"npm run transpile\"",
     "prepublish": "npm run transpile"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.44",
     "@babel/core": "^7.0.0-beta.44",
     "@babel/preset-env": "^7.0.0-beta.44",
+    "@babel/preset-flow": "^7.0.0-beta.44",
+    "@babel/preset-react": "^7.0.0-beta.44",
     "@babel/preset-stage-2": "^7.0.0-beta.44",
     "babel-core": "^7.0.0-0",
     "babel-eslint": "^8.2.2",
@@ -32,6 +36,9 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.10.0",
     "jest": "^22.4.3",
-    "prettier": "^1.11.1"
-  }
+    "nodemon": "^1.17.3",
+    "prettier": "^1.11.1",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {}
 }
